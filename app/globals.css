@@ -1,26 +1,126 @@
 @import "tailwindcss";
+@plugin "tailwindcss-animate";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Dark mode driven by the .dark class (next-themes) */
+@custom-variant dark (&:where(.dark, .dark *));
 
-@theme inline {
+@theme {
+  /* ---- Primaire : indigo profond (contraste AA avec texte blanc) ---- */
+  --color-forest-50: #eef2ff;
+  --color-forest-100: #e0e7ff;
+  --color-forest-300: #a5b4fc;
+  --color-forest-400: #818cf8;
+  --color-forest-500: #4f46e5;
+  --color-forest-600: #4338ca;
+  --color-forest-700: #3730a3;
+  --color-forest-900: #1e1b4b;
+
+  /* ---- Secondaire / accent : ciel ---- */
+  --color-moss-50: #f0f9ff;
+  --color-moss-100: #e0f2fe;
+  --color-moss-400: #38bdf8;
+  --color-moss-500: #0ea5e9;
+  --color-moss-600: #0284c7;
+
+  /* ---- Couleurs de données / risque (raffinées) ---- */
+  --color-aws: #f59e0b;
+  --color-databricks: #e11d48;
+
+  /* Tokens sémantiques neutres (slate) — re-mappés en dark */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+
+  /* ---- Typographie ---- */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: #f8fafc; /* slate-50 */
+  --foreground: #0f172a; /* slate-900 */
+  --card: #ffffff;
+  --border: #e2e8f0;     /* slate-200 */
+  --muted: #64748b;      /* slate-500 */
+}
+
+.dark {
+  --background: #0a0f1a; /* navy-slate profond */
+  --foreground: #e2e8f0; /* slate-200 */
+  --card: #111827;       /* slate-900 */
+  --border: #1f2a3d;     /* slate-800 raffiné */
+  --muted: #94a3b8;      /* slate-400 */
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Smooth-scroll géré par Lenis ; on désactive le natif pour éviter les conflits */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ---- Animations hero ---- */
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 5s ease-in-out infinite;
+}
+
+/* Flux de données le long de la ligne étudiant ↔ robot */
+@keyframes dash-flow {
+  to { stroke-dashoffset: -64; }
+}
+.flow-line {
+  stroke-dasharray: 4 12;
+  animation: dash-flow 1.6s linear infinite;
+}
+
+/* Reflet balayant le CTA principal */
+@keyframes shine-sweep {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  60%, 100% { transform: translateX(250%) skewX(-20deg); }
+}
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  animation: shine-sweep 3.2s ease-in-out infinite;
+}
+
+/* Respect de prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

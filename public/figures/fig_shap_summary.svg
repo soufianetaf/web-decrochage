@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="g5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2C5F2D"/>
+      <stop offset="1" stop-color="#97BC62"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="#F2F7F2"/>
+  <rect x="0" y="0" width="800" height="110" fill="url(#g5)"/>
+  <text x="40" y="68" font-family="Segoe UI, Arial" font-size="30" font-weight="700" fill="#ffffff">SHAP Summary Plot</text>
+  <text x="40" y="160" font-family="Segoe UI, Arial" font-size="20" fill="#1F4520">Top 20 features</text>
+  <g stroke="#97BC62" stroke-width="2" fill="none" opacity="0.6">
+    <rect x="40" y="200" width="720" height="250" rx="12" stroke="#E0EBE0"/>
+    <polyline points="60,420 200,360 340,380 480,280 620,300 740,230" stroke="#2C5F2D" stroke-width="3"/>
+  </g>
+  <text x="400" y="485" text-anchor="middle" font-family="Segoe UI, Arial" font-size="13" fill="#6b7280">Figure d'illustration — a remplacer par l'export du memoire (fig_shap_summary.png)</text>
+</svg>
