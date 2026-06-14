@@ -17,7 +17,7 @@ export const DICT = {
       openMenu: 'Ouvrir le menu',
     },
     hero: {
-      badge: 'Master MISD · 2024-2025 · Dataset OULAD',
+      badge: 'Master MISD · 2025-2026 · Dataset OULAD',
       titleA: 'Système intelligent et explicable de ',
       titleB: 'prévention du décrochage scolaire',
       subtitle: "Une approche Big Data fondée sur Databricks et l'apprentissage automatique",
@@ -29,11 +29,19 @@ export const DICT = {
       ctaSecondary: 'Télécharger le mémoire',
       supervisor: 'Encadrant',
       scroll: 'Faire défiler vers la suite',
+      eyebrowStats: 'OULAD · 32 593 étudiants · 10M interactions VLE',
+      titleLine1: 'Le décrochage se lit dans les données,',
+      titleEmph: 'des semaines avant l’abandon.',
+      deck: 'Un système explicable qui atteint 96 % de F1-score et devient fiable dès la 8ᵉ semaine du semestre — validé sur le jeu de données OULAD.',
+      chartTitle: 'Fiabilité de la détection',
+      chartUnit: 'F1-score (%) par semaine du semestre',
+      chartThreshold: 'Seuil de fiabilité · 80 %',
+      chartCrossing: 'Fiable dès S8',
       studentAlt: 'Étudiant — au cœur du dispositif',
       robotAlt: 'Assistant IA accompagnant l’étudiant',
       chipF1Value: '96,04 %',
       chipF1Label: 'F1-score',
-      chipWeekValue: 'Semaine 8',
+      chipWeekValue: 'Semaine 3',
       chipWeekLabel: 'Détection précoce',
       chipXaiValue: '94,1 %',
       chipXaiLabel: 'Explicabilité',
@@ -211,7 +219,7 @@ export const DICT = {
     },
     architecture: {
       eyebrow: 'Infrastructure',
-      title: 'Stack technique & Architecture cloud',
+      title: 'Architecture technique',
       subtitle:
         "Un pipeline développé en local avec Python, puis déployé sur Databricks AWS pour validation à l'échelle.",
       stackTitle: 'Stack technologique',
@@ -227,7 +235,7 @@ export const DICT = {
     },
     viz: {
       eyebrow: 'Galerie',
-      title: 'Visualisations & Analyses',
+      title: 'Visualisations',
       subtitle:
         'Sélection des figures principales produites tout au long du projet. Cliquez pour zoomer.',
       zoom: 'Agrandir',
@@ -244,7 +252,7 @@ export const DICT = {
     },
     resources: {
       eyebrow: 'Pour aller plus loin',
-      title: 'Ressources & Contact',
+      title: 'Ressources',
       subtitle: 'Mémoire complet, code source, notebooks, vidéo et contact.',
       cards: [
         { title: 'Mémoire complet', desc: '~100 pages détaillant méthodologie, résultats et discussion.', cta: 'Télécharger le PDF' },
@@ -283,7 +291,7 @@ export const DICT = {
       openMenu: 'Open menu',
     },
     hero: {
-      badge: 'MSc Data Science · 2024-2025 · OULAD dataset',
+      badge: 'MSc Data Science · 2025-2026 · OULAD dataset',
       titleA: 'An intelligent, explainable system for ',
       titleB: 'preventing student dropout',
       subtitle: 'A Big Data approach built on Databricks and machine learning',
@@ -295,11 +303,19 @@ export const DICT = {
       ctaSecondary: 'Download the thesis',
       supervisor: 'Supervisor',
       scroll: 'Scroll to next section',
+      eyebrowStats: 'OULAD · 32,593 students · 10M VLE interactions',
+      titleLine1: 'Dropout is visible in the data,',
+      titleEmph: 'weeks before a student quits.',
+      deck: 'An explainable system reaching 96% F1-score and becoming reliable from week 8 of the semester — validated on the OULAD dataset.',
+      chartTitle: 'Detection reliability',
+      chartUnit: 'F1-score (%) by semester week',
+      chartThreshold: 'Reliability threshold · 80%',
+      chartCrossing: 'Reliable from W8',
       studentAlt: 'Student — at the centre of the system',
       robotAlt: 'AI assistant supporting the student',
       chipF1Value: '96.04%',
       chipF1Label: 'F1-score',
-      chipWeekValue: 'Week 8',
+      chipWeekValue: 'Week 3',
       chipWeekLabel: 'Early detection',
       chipXaiValue: '94.1%',
       chipXaiLabel: 'Explainability',
@@ -476,7 +492,7 @@ export const DICT = {
     },
     architecture: {
       eyebrow: 'Infrastructure',
-      title: 'Tech stack & Cloud architecture',
+      title: 'Technical architecture',
       subtitle:
         'A pipeline developed locally with Python, then deployed on Databricks AWS for at-scale validation.',
       stackTitle: 'Technology stack',
@@ -492,7 +508,7 @@ export const DICT = {
     },
     viz: {
       eyebrow: 'Gallery',
-      title: 'Visualizations & Analyses',
+      title: 'Visualizations',
       subtitle:
         'A selection of the main figures produced throughout the project. Click to zoom.',
       zoom: 'Zoom',
@@ -509,7 +525,7 @@ export const DICT = {
     },
     resources: {
       eyebrow: 'Going further',
-      title: 'Resources & Contact',
+      title: 'Resources',
       subtitle: 'Full thesis, source code, notebooks, video and contact.',
       cards: [
         { title: 'Full thesis', desc: '~100 pages covering methodology, results and discussion.', cta: 'Download PDF' },

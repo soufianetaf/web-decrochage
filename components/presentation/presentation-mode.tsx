@@ -33,6 +33,7 @@ type SectionId = (typeof SECTION_IDS)[number]
 interface PresentationContextValue {
   active: boolean
   toggle: () => void
+  exit: () => void
 }
 
 const PresentationContext = createContext<PresentationContextValue | null>(null)
@@ -45,8 +46,35 @@ export function usePresentation() {
 
 export function PresentationProvider({ children }: { children: React.ReactNode }) {
   const [active, setActive] = useState(false)
-  const toggle = useCallback(() => setActive((a) => !a), [])
-  const value = useMemo(() => ({ active, toggle }), [active, toggle])
+
+  // Plein écran réel via l'API Fullscreen.
+  const exit = useCallback(() => {
+    setActive(false)
+    if (typeof document !== 'undefined' && document.fullscreenElement) {
+      document.exitFullscreen?.().catch(() => {})
+    }
+  }, [])
+  const toggle = useCallback(() => {
+    setActive((a) => {
+      if (a) {
+        if (document.fullscreenElement) document.exitFullscreen?.().catch(() => {})
+      } else if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen?.().catch(() => {})
+      }
+      return !a
+    })
+  }, [])
+
+  const value = useMemo(() => ({ active, toggle, exit }), [active, toggle, exit])
+
+  // Synchronise l'état si l'utilisateur quitte le plein écran (Échap / F11).
+  useEffect(() => {
+    const onFs = () => {
+      if (!document.fullscreenElement) setActive(false)
+    }
+    document.addEventListener('fullscreenchange', onFs)
+    return () => document.removeEventListener('fullscreenchange', onFs)
+  }, [])
 
   // Raccourci global « P » (hors champs de saisie) pour basculer le mode.
   useEffect(() => {
@@ -71,7 +99,7 @@ function scrollToSection(id: SectionId) {
 }
 
 function PresentationBar() {
-  const { active, toggle } = usePresentation()
+  const { active, exit } = usePresentation()
   const { t } = useI18n()
   const [index, setIndex] = useState(0)
 
@@ -97,12 +125,12 @@ function PresentationBar() {
         e.preventDefault()
         go(-1)
       } else if (e.key === 'Escape') {
-        toggle()
+        exit()
       }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [active, go, toggle])
+  }, [active, go, exit])
 
   // À l'activation : repart de la section visible la plus proche.
   useEffect(() => {
@@ -181,7 +209,7 @@ function PresentationBar() {
 
             <button
               type="button"
-              onClick={toggle}
+              onClick={exit}
               aria-label={t.presentation.exit}
               className="ml-1 flex size-8 cursor-pointer items-center justify-center rounded-full text-muted transition-colors hover:bg-forest-50 hover:text-foreground dark:hover:bg-forest-700/50"
             >

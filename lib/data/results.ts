@@ -77,7 +77,7 @@ export const PROJECT_META = {
   subtitle: "Une approche Big Data fondée sur Databricks et l'apprentissage automatique",
   author: 'Soufiane Tafahi',
   formation: 'Master MISD',
-  year: '2024-2025',
+  year: '2025-2026',
   university: 'Université',
   supervisor: 'Prof.',
   dataset: 'OULAD',

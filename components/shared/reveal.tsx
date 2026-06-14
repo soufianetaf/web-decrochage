@@ -5,11 +5,18 @@ import { motion, type Variants } from 'framer-motion'
 import type { ReactNode } from 'react'
 
 const variants: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 36, scale: 0.96, filter: 'blur(8px)' },
   visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] },
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: {
+      delay: i * 0.1,
+      duration: 0.7,
+      ease: [0.16, 1, 0.3, 1],
+      scale: { type: 'spring', stiffness: 130, damping: 18, delay: i * 0.1 },
+    },
   }),
 }
 

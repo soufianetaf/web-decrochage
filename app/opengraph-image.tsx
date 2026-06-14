@@ -35,10 +35,10 @@ export default function OG() {
               fontSize: 32,
             }}
           >
-            🌱
+            🎓
           </div>
-          <div style={{ fontSize: 26, color: '#97BC62', fontWeight: 700 }}>
-            Master MISD · 2024-2025
+          <div style={{ fontSize: 26, color: '#818cf8', fontWeight: 700 }}>
+            Master MISD · 2025-2026
           </div>
         </div>
 

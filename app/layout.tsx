@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
+import { Inter, Fraunces, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { LanguageProvider } from '@/components/providers/language-provider'
@@ -12,10 +12,11 @@ import { Footer } from '@/components/layout/footer'
 import { PROJECT_META } from '@/lib/data/results'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
-const display = Plus_Jakarta_Sans({
+const display = Fraunces({
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
+  axes: ['opsz'],
 })
 const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' })
 
@@ -78,7 +79,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
       </head>
       <body className="min-h-dvh">
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <LanguageProvider>
             <PresentationProvider>
             <TooltipProvider delayDuration={150}>

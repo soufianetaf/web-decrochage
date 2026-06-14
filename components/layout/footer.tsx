@@ -1,7 +1,7 @@
 // components/layout/footer.tsx — pied de page.
 'use client'
 
-import { Sprout } from 'lucide-react'
+import { GraduationCap } from 'lucide-react'
 import { PROJECT_META } from '@/lib/data/results'
 import { useI18n } from '@/components/providers/language-provider'
 
@@ -13,7 +13,7 @@ export function Footer() {
         <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
           <div className="flex items-center gap-2 font-display font-semibold text-foreground">
             <span className="flex size-8 items-center justify-center rounded-lg bg-forest-500 text-white">
-              <Sprout className="size-5" />
+              <GraduationCap className="size-5" />
             </span>
             {t.footer.tagline}
           </div>
@@ -22,7 +22,6 @@ export function Footer() {
             {PROJECT_META.year}
           </p>
         </div>
-        <p className="mt-6 text-center text-xs text-muted sm:text-left">{t.footer.built}</p>
       </div>
     </footer>
   )

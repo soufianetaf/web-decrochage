@@ -1,9 +1,9 @@
-// components/layout/navbar.tsx — navbar sticky avec ancres, scroll-spy, menu mobile.
+// components/layout/navbar.tsx — navbar sticky avec ancres, scroll-spy, menu mobile épuré.
 'use client'
 
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sprout, Presentation } from 'lucide-react'
+import { Menu, X, GraduationCap, Presentation } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { NAV_LINKS } from '@/lib/data/nav'
 import { ThemeToggle } from '@/components/layout/theme-toggle'
@@ -57,9 +57,9 @@ export function Navbar() {
         className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
         aria-label="Navigation principale"
       >
-        <a href="#hero" className="flex items-center gap-2 font-display font-bold text-foreground">
+        <a href="#hero" className="flex items-center gap-2 font-display font-semibold text-foreground">
           <span className="flex size-8 items-center justify-center rounded-lg bg-forest-500 text-white">
-            <Sprout className="size-5" />
+            <GraduationCap className="size-5" />
           </span>
           <span className="hidden sm:inline">{t.nav.brand}</span>
         </a>
@@ -72,7 +72,7 @@ export function Navbar() {
                 className={cn(
                   'rounded-full px-3 py-2 text-sm font-medium transition-colors',
                   active === link.href
-                    ? 'text-forest-500 dark:text-moss-500'
+                    ? 'text-forest-500 dark:text-forest-400'
                     : 'text-muted hover:text-foreground',
                 )}
               >
@@ -82,11 +82,11 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
+        {/* Contrôles desktop */}
+        <div className="hidden items-center gap-2 lg:flex">
           <Button
             variant="ghost"
             size="icon"
-            className="hidden sm:inline-flex"
             aria-label={t.presentation.enter}
             aria-pressed={presentation.active}
             title={`${t.presentation.enter} (P)`}
@@ -96,10 +96,14 @@ export function Navbar() {
           </Button>
           <LanguageToggle />
           <ThemeToggle />
+        </div>
+
+        {/* Contrôles mobile : thème + hamburger uniquement (le reste va dans le menu) */}
+        <div className="flex items-center gap-1 lg:hidden">
+          <ThemeToggle />
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden"
             aria-label={t.nav.openMenu}
             aria-expanded={open}
             onClick={() => setOpen((o) => !o)}
@@ -127,7 +131,7 @@ export function Navbar() {
                     className={cn(
                       'block rounded-lg px-4 py-3 text-sm font-medium transition-colors',
                       active === link.href
-                        ? 'bg-forest-50 text-forest-600 dark:bg-forest-700/40 dark:text-moss-500'
+                        ? 'bg-forest-50 text-forest-600 dark:bg-forest-700/40 dark:text-forest-400'
                         : 'text-muted hover:bg-forest-50 hover:text-foreground dark:hover:bg-forest-700/40',
                     )}
                   >
@@ -136,6 +140,22 @@ export function Navbar() {
                 </li>
               ))}
             </ul>
+
+            {/* Langue + mode soutenance, rangés dans le menu sur mobile */}
+            <div className="flex items-center justify-between gap-3 border-t border-border px-4 py-4">
+              <LanguageToggle />
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={() => {
+                  presentation.toggle()
+                  setOpen(false)
+                }}
+              >
+                <Presentation className="size-4" />
+                {t.presentation.enter}
+              </Button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
