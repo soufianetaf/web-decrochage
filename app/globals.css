@@ -58,8 +58,16 @@
 @layer base {
   * {
     border-color: var(--color-border);
+    min-width: 0;
+  }
+  html {
+    overflow-x: clip;
   }
   body {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);

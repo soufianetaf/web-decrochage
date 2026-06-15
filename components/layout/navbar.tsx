@@ -98,8 +98,19 @@ export function Navbar() {
           <ThemeToggle />
         </div>
 
-        {/* Contrôles mobile : thème + hamburger uniquement (le reste va dans le menu) */}
+        {/* Contrôles mobile : présentation (visible) + thème + hamburger */}
         <div className="flex items-center gap-1 lg:hidden">
+          <Button
+            variant="ghost"
+            size="icon"
+            aria-label={t.presentation.enter}
+            aria-pressed={presentation.active}
+            title={t.presentation.enter}
+            onClick={presentation.toggle}
+            className="text-forest-500 dark:text-forest-400"
+          >
+            <Presentation className="size-5" />
+          </Button>
           <ThemeToggle />
           <Button
             variant="ghost"
@@ -141,20 +152,14 @@ export function Navbar() {
               ))}
             </ul>
 
-            {/* Langue + mode soutenance, rangés dans le menu sur mobile */}
-            <div className="flex items-center justify-between gap-3 border-t border-border px-4 py-4">
-              <LanguageToggle />
-              <Button
-                variant="secondary"
-                size="sm"
-                onClick={() => {
-                  presentation.toggle()
-                  setOpen(false)
-                }}
-              >
-                <Presentation className="size-4" />
-                {t.presentation.enter}
-              </Button>
+            {/* Langue, rangée dans le menu sur mobile */}
+            <div className="flex items-center gap-3 border-t border-border px-4 py-4">
+              <span className="font-mono text-xs uppercase tracking-wider text-muted">
+                {t.nav.brand}
+              </span>
+              <span className="ml-auto">
+                <LanguageToggle />
+              </span>
             </div>
           </motion.div>
         )}
