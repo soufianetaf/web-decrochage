@@ -98,7 +98,7 @@ export function Navbar() {
           <ThemeToggle />
         </div>
 
-        {/* Contrôles mobile : présentation (visible) + thème + hamburger */}
+        {/* Contrôles mobile : présentation + langue + thème + hamburger (tous visibles) */}
         <div className="flex items-center gap-1 lg:hidden">
           <Button
             variant="ghost"
@@ -111,6 +111,7 @@ export function Navbar() {
           >
             <Presentation className="size-5" />
           </Button>
+          <LanguageToggle />
           <ThemeToggle />
           <Button
             variant="ghost"
@@ -152,15 +153,6 @@ export function Navbar() {
               ))}
             </ul>
 
-            {/* Langue, rangée dans le menu sur mobile */}
-            <div className="flex items-center gap-3 border-t border-border px-4 py-4">
-              <span className="font-mono text-xs uppercase tracking-wider text-muted">
-                {t.nav.brand}
-              </span>
-              <span className="ml-auto">
-                <LanguageToggle />
-              </span>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
