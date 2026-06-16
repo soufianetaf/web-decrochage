@@ -23,13 +23,13 @@ import { SectionHeading } from '@/components/shared/section-heading'
 import { useI18n } from '@/components/providers/language-provider'
 import { PROJECT_META } from '@/lib/data/results'
 
-const SITE_URL = 'https://decrochage-prediction.vercel.app'
+const SITE_URL = 'https://decrochage-ml.vercel.app/'
 
 const CARD_META: { icon: LucideIcon; accent: string; href: string; external?: boolean; variant: 'primary' | 'secondary'; secondAction?: { icon: LucideIcon; href: string; key: 'linkedin' } }[] = [
   { icon: FileDown, accent: 'bg-forest-500', href: '/memoire.pdf', variant: 'primary' },
-  { icon: Code2, accent: 'bg-forest-600', href: 'https://github.com/soufiane/dropout-prediction', external: true, variant: 'secondary' },
+  { icon: Code2, accent: 'bg-forest-600', href: 'https://github.com/soufianetaf/dropout-prediction', external: true, variant: 'secondary' },
   { icon: Video, accent: 'bg-moss-600', href: '#', variant: 'secondary' },
-  { icon: Mail, accent: 'bg-aws', href: 'mailto:itssoufianetafahi@gmail.com', variant: 'primary', secondAction: { icon: Contact, href: 'https://linkedin.com', key: 'linkedin' } },
+  { icon: Mail, accent: 'bg-aws', href: 'mailto:itssoufianetafahi@gmail.com', variant: 'primary', secondAction: { icon: Contact, href: 'https://www.linkedin.com/in/soufiane-tafahi/', key: 'linkedin' } },
 ]
 
 export function ResourcesSection() {
@@ -95,7 +95,7 @@ export function ResourcesSection() {
             <Card className="h-full">
               <CardContent className="flex h-full flex-col items-center justify-center gap-4 p-7 text-center">
                 <div className="rounded-xl bg-white p-3 shadow-sm">
-                  <QRCodeSVG value={SITE_URL} size={132} fgColor="#1F4520" level="M" />
+                  <QRCodeSVG value={SITE_URL} size={140} fgColor="#1E1B4B" bgColor="#FFFFFF" level="M" marginSize={2} />
                 </div>
                 <div>
                   <p className="font-display font-semibold text-foreground">{t.resources.qrTitle}</p>
@@ -114,12 +114,12 @@ function CitationCard() {
   const { t } = useI18n()
   const [copied, setCopied] = useState<string | null>(null)
 
-  const bibtex = `@mastersthesis{tafahi2025dropout,
+  const bibtex = `@mastersthesis{tafahi2026dropout,
   title   = {${PROJECT_META.title}},
   author  = {${PROJECT_META.author}},
-  year    = {2025},
+  year    = {2026},
   school  = {${PROJECT_META.university}},
-  type    = {Mémoire de Master MISD},
+  type    = {Mémoire de Master IMSD},
   url     = {${SITE_URL}}
 }`
 

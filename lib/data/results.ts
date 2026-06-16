@@ -76,10 +76,10 @@ export const PROJECT_META = {
   title: 'Système intelligent et explicable de prévention du décrochage scolaire',
   subtitle: "Une approche Big Data fondée sur Databricks et l'apprentissage automatique",
   author: 'Soufiane Tafahi',
-  formation: 'Master MISD',
+  formation: 'Master IMSD',
   year: '2025-2026',
-  university: 'Université',
-  supervisor: 'Prof.',
+  university: 'ENSA Khouribga',
+  supervisor: 'Pr. ROCHD Yasser',
   dataset: 'OULAD',
   technologies: [
     'Python',

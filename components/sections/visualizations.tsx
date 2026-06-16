@@ -33,19 +33,20 @@ export function VisualizationsSection() {
                   className="relative block w-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-500"
                   aria-label={`${t.viz.zoom} : ${caption(i)}`}
                 >
-                  <div className="relative aspect-[8/5] overflow-hidden">
+                  <div className="relative aspect-[8/5] overflow-hidden border-b border-border bg-white">
                     <Image
                       src={fig.src}
                       alt={caption(i)}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="object-contain p-2 transition-transform duration-300 group-hover:scale-[1.03]"
                     />
-                    <span className="absolute inset-0 flex items-center justify-center bg-forest-900/0 opacity-0 transition-all duration-300 group-hover:bg-forest-900/30 group-hover:opacity-100">
-                      <ZoomIn className="size-8 text-white" />
+                    <span className="absolute inset-0 flex items-center justify-center bg-forest-900/0 opacity-0 transition-all duration-300 group-hover:bg-forest-900/20 group-hover:opacity-100">
+                      <ZoomIn className="size-8 text-white drop-shadow" />
                     </span>
                   </div>
-                  <p className="px-4 py-3 text-left text-sm font-medium text-foreground">
+                  <p className="px-4 py-3 text-left font-mono text-xs text-muted">
+                    <span className="mr-2 text-forest-500 dark:text-forest-400">{`FIG ${i + 1}`}</span>
                     {caption(i)}
                   </p>
                 </button>

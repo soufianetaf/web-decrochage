@@ -38,7 +38,7 @@ export default function OG() {
             🎓
           </div>
           <div style={{ fontSize: 26, color: '#818cf8', fontWeight: 700 }}>
-            Master MISD · 2025-2026
+            Master IMSD · 2025-2026
           </div>
         </div>
 

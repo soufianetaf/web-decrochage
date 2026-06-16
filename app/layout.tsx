@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://decrochage-prediction.vercel.app'),
   title: {
     default: `${PROJECT_META.title} | ${PROJECT_META.formation}`,
-    template: '%s | Mémoire MISD',
+    template: '%s | Mémoire IMSD',
   },
   description:
     "Système intelligent et explicable de prévention du décrochage scolaire : pipeline Big Data (Databricks, ML, SHAP/LIME) prédisant le décrochage avec 96 % de F1-score dès la 8e semaine.",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     'XGBoost',
     'explicabilité',
     'Big Data',
-    'Master MISD',
+    'Master IMSD',
   ],
   authors: [{ name: PROJECT_META.author }],
   openGraph: {

@@ -4,14 +4,14 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const badgeVariants = cva(
-  'inline-flex items-center rounded-full px-3 py-1 text-xs font-medium transition-colors',
+  'inline-flex items-center rounded-md px-2.5 py-1 font-mono text-[11px] font-medium uppercase tracking-wider transition-colors',
   {
     variants: {
       variant: {
-        default: 'bg-moss-100 text-forest-700 dark:bg-forest-700/50 dark:text-moss-100',
+        default: 'border border-border bg-card text-muted',
         outline: 'border border-border text-foreground',
-        aws: 'bg-aws/15 text-aws',
-        databricks: 'bg-databricks/15 text-databricks',
+        aws: 'border border-aws/25 bg-aws/10 text-aws',
+        databricks: 'border border-databricks/25 bg-databricks/10 text-databricks',
       },
     },
     defaultVariants: { variant: 'default' },
